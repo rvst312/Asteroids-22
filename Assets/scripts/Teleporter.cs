@@ -15,13 +15,21 @@ public class Teleporter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(transform.position.y > limiteY);
+      if(transform.position.y > limiteY)
       {
-      transform.position = new Vector3(transform.position.x, -limiteY +0.1f);
+      transform.position = new Vector3(transform.position.x, -limiteY);
       }
-      if(transform.position.y < -limiteY);
+      if(transform.position.y < -limiteY)
       {
-      transform.position = new Vector3(transform.position.x, limiteY - 0.1f);  
+      transform.position = new Vector3(transform.position.x, limiteY);  
+      }
+      if(transform.position.x > limiteX)
+      {
+      transform.position = new Vector3(-limiteX, transform.position.y);
+      }
+      if(transform.position.x < -limiteX)
+      {
+      transform.position = new Vector3(limiteX, transform.position.y);  
       }
     
     }

@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 0.4575472, b: 0.66763604, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -240,8 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87dac2edbd8484a58af0e3e3c41b64b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  speed: 300
   rotationSpeed: -200
+  bala: {fileID: 5490446267922369287, guid: d2e88ce14d629446d9c92e53a26ad851, type: 3}
 --- !u!212 &914516226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -364,3 +365,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limiteX: 10
   limiteY: 6
+--- !u!1 &1381567431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1381567433}
+  - component: {fileID: 1381567432}
+  m_Layer: 0
+  m_Name: GestorAsteroides
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1381567432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381567431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8def62374d2fe46f198142bfc326b81f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroides_min: 2
+  asteroides_max: 8
+  limitX: 10
+  limitY: 6
+  asteroide: {fileID: 59193930465366268, guid: 6a762b520197d4be6a67997dddda23ea, type: 3}
+--- !u!4 &1381567433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381567431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     public float speed = 10;
     public float rotationSpeed = 10;
+    public GameObject bala;
 
     void Start()
     {
@@ -30,5 +31,9 @@ public class PlayerMovement : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         transform.eulerAngles = transform.eulerAngles + new Vector3(0, 0, horizontal * rotationSpeed * Time.deltaTime);
+        if (Input.GetButton("Jump"))
+        {
+            Instantiate(bala);
+        }
     }
 }
