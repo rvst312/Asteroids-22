@@ -18,4 +18,13 @@ public class SparkControler : MonoBehaviour
     {
         
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+     if (collision.tag == "Asteroid")   
+     {
+        collision.gameObject.GetComponent<AsteroidController>().Muerte();
+        Destroy(gameObject);
+     }
+
+    }
 }
