@@ -40,7 +40,15 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Muerte()
     {
-        Destroy(gameObject);
+        GameManager.instance.vidas -= 1;
+        transform.position = new Vector3(0,0,0);
+        rb.velocity = new Vector2(0,0);
+        if (GameManager.instance.vidas <= 0)
+        {
+          Destroy(gameObject); 
+          Time.timeScale = 0;  
+        }
+
     }
 }
 
