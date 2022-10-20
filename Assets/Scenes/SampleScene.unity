@@ -644,6 +644,7 @@ MonoBehaviour:
   rotationSpeed: -200
   bala: {fileID: 5490446267922369287, guid: d2e88ce14d629446d9c92e53a26ad851, type: 3}
   boquilla: {fileID: 513042458}
+  particulasMuerte: {fileID: 7672947834500576098, guid: d3af4ce21bac14d5085f8363a2c3396f, type: 3}
 --- !u!212 &914516226
 SpriteRenderer:
   m_ObjectHideFlags: 0

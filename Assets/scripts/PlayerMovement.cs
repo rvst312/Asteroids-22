@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 10;
     public GameObject bala;
     public GameObject boquilla;
+    public GameObject particulasMuerte;
 
     void Start()
     {
@@ -40,9 +41,12 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Muerte()
     {
+        GameObject temp = Instantiate(particulasMuerte, transform.position, transform.rotation);
+        Destroy(temp, 2.0f);
         GameManager.instance.vidas -= 1;
         transform.position = new Vector3(0,0,0);
         rb.velocity = new Vector2(0,0);
+
         if (GameManager.instance.vidas <= 0)
         {
           Destroy(gameObject); 

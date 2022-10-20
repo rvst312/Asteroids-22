@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
        tiempo.text = Time.time.ToString("00.00"); 
-       
+       puntuacion.text = GameManager.instance.puntuacion.ToString();
+       vidas.text = GameManager.instance.vidas.ToString();  
     }
 }
