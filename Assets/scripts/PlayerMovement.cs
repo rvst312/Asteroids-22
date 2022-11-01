@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator anim;
+    CircleCollider2D collider;
+    SpriteRenderer sprite;
     public float speed = 10;
     public float rotationSpeed = 10;
     public GameObject bala;
@@ -16,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        collider = GetComponent<CircleCollider2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -38,22 +42,43 @@ public class PlayerMovement : MonoBehaviour
             GameObject temp = Instantiate(bala, boquilla.transform.position, transform.rotation);
             Destroy(temp, 1.5f);
         }
+       
     }
     public void Muerte()
     {
         GameObject temp = Instantiate(particulasMuerte, transform.position, transform.rotation);
-        Destroy(temp, 2.0f);
-        GameManager.instance.vidas -= 1;
-        transform.position = new Vector3(0,0,0);
-        rb.velocity = new Vector2(0,0);
+        Destroy(temp, 2.5f);
 
+        GameManager.instance.vidas -= 1;
         if (GameManager.instance.vidas <= 0)
         {
           Destroy(gameObject); 
           Time.timeScale = 0;  
         }
+        else
+        {
+        StartCoroutine(Respawn_Coroutine());
+        }
 
     }
+
+
+    IEnumerator Respawn_Coroutine()
+    {
+        collider.enabled = false;
+        sprite.enabled = false;
+        yield return new WaitForSeconds(3);
+        collider.enabled = true;
+        sprite.enabled = true;
+
+        transform.position = new Vector3(0,0,0);
+        rb.velocity = new Vector2(0,0);
+
+
+
+    }
+
+
 }
 
 
