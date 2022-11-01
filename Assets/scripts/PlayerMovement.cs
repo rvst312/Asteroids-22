@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject bala;
     public GameObject boquilla;
     public GameObject particulasMuerte;
+    bool muerto;
 
     void Start()
     {
@@ -24,24 +25,34 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float vertical = Input.GetAxis("Vertical");
-        if (vertical > 0)
+        if(muerto)
         {
-            rb.AddForce(transform.up * vertical * speed * Time.deltaTime);
-            anim.SetBool("Impulsing", true);
+
         }
         else
         {
+         float vertical = Input.GetAxis("Vertical");
+         if (vertical > 0)
+         {
+            rb.AddForce(transform.up * vertical * speed * Time.deltaTime);
+            anim.SetBool("Impulsing", true);
+         }
+         else
+         {
             anim.SetBool("Impulsing", false);
-        }
+         }
 
-        float horizontal = Input.GetAxis("Horizontal");
-        transform.eulerAngles = transform.eulerAngles + new Vector3(0, 0, horizontal * rotationSpeed * Time.deltaTime);
-        if (Input.GetButtonDown("Jump"))
-        {
+         float horizontal = Input.GetAxis("Horizontal");
+         transform.eulerAngles = transform.eulerAngles + new Vector3(0, 0, horizontal * rotationSpeed * Time.deltaTime);
+         if (Input.GetButtonDown("Jump"))
+         {
             GameObject temp = Instantiate(bala, boquilla.transform.position, transform.rotation);
             Destroy(temp, 1.5f);
+         }
+
         }
+
+
        
     }
     public void Muerte()
@@ -65,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Respawn_Coroutine()
     {
+        muerto = true;
         collider.enabled = false;
         sprite.enabled = false;
         yield return new WaitForSeconds(3);
@@ -73,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = new Vector3(0,0,0);
         rb.velocity = new Vector2(0,0);
+        muerto = false;
 
 
 
